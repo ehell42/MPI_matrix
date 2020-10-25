@@ -55,8 +55,8 @@ int main(int argc, char** argv)
 	{
 		t1s = MPI_Wtime();
 		for (int i = 0; i < size; i++)
-			for (int j = 0; j < size; j++)
-				for (int k = 0; k < size; k++)
+			for (int k = 0; k < size; k++)
+				for (int j = 0; j < size; j++)
 					Cs[i * size + j] = A[i * size + k] * B[k * size + j];
 
 		t2s = MPI_Wtime();
@@ -91,8 +91,8 @@ int main(int argc, char** argv)
 
 	//find part of C
 	for (int i = 0; i < masssize[myid] / size; i++)
-		for (int j = 0; j < size; j++)
-			for (int k = 0; k < size; k++)
+		for (int k = 0; k < size; k++)
+			for (int j = 0; j < size; j++)
 				Cloc[i * size + j] = Aloc[i * size + k] * B[k * size + j];
 
 	//join all parts C in one martix
